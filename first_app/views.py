@@ -6,5 +6,4 @@ def index(request):
     my_dict = {
         'insert_me': 'Hello, I am from views.py!',
     }
-    return render(request, 'index.html', context=my_dict)
-    #return HttpResponse('Hello, World!')
+    return render(request, 'first_app/index.html', context=my_dict)
