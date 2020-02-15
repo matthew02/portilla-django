@@ -137,8 +137,10 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 # Visual studio code
-.vscode
+.vscode/
 
+# Pipenv virtual environment
+.venv/
 
 .env
 uwsgi.ini
