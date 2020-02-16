@@ -20,14 +20,14 @@ topics = ['Search', 'Social', 'Retail', 'News', 'Games']
 
 
 def add_topic():
-    t = Topic.objects.get_or_create(name = random_topic())[0]
+    t = Topic.objects.get_or_create(name=random_topic())[0]
     t.save()
     return t
 
 def random_topic():
     return random.choice(topics)
 
-def populate(quantity = 5):
+def populate(quantity=5):
     for entry in range(quantity):
         topic = add_topic()
         url = fakegen.url()
@@ -35,14 +35,14 @@ def populate(quantity = 5):
         company = fakegen.company()
 
         webpage = Webpage.objects.get_or_create(
-            topic = topic,
-            url = url,
-            name = company,
+            topic=topic,
+            url=url,
+            name=company,
         )[0]
 
         acc_rec = AccessRecord.objects.get_or_create(
-            name = webpage,
-            date = date,
+            name=webpage,
+            date=date,
         )[0]
 
 if __name__ == '__main__':
