@@ -9,10 +9,26 @@
   <title>First App</title>
 </head>
 <body>
-  <h1>Hello, this is index.html!</h1>
-  <p>
-    {{ insert_me }}
-  </p>
+  <h1>Hello and welcome to L2.</h1>
+  <h2>Here are your access records.</h2>
+  <div class="djangotwo">
+    {% if access_records %}
+      <table>
+        <thead>
+          <th>Site Name</th>
+          <th>Date Accessed</th>
+        </thead>
+        {% for acc in access_records %}
+        <tr>
+          <td>{{ acc.name }}</td>
+          <td>{{ acc.date }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>No access records found.</p>
+    {% endif %}
+  </div>
   <img src="{% static 'first_app/images/earth.jpg' %}" width="100%" alt="Image of Earth from the ISS.">
 </body>
 </html>
