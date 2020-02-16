@@ -1,17 +1,17 @@
 from django import forms
-from django.core import validators
 
-
-def check_for_z(value):
-    if value[0].lower() != 'z':
-        raise forms.ValidationError('Name should begin with a Z.')
 
 class FormName(forms.Form):
-    name = forms.CharField(validators=[check_for_z])
+    name = forms.CharField()
     email = forms.EmailField()
+    vmail = forms.EmailField(label='Enter your email again.')
     text = forms.CharField(widget=forms.Textarea)
-    botcatcher = forms.CharField(
-        required=False,
-        widget=forms.HiddenInput,
-        validators=[validators.MaxLengthValidator(0)])
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        email = cleaned_data['email']
+        vmail = cleaned_data['vmail']
+
+        if email != vmail:
+            raise forms.ValidationError('The email addresses do not match.')
     
