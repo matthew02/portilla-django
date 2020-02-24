@@ -1,10 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-
-from first_app.models import AccessRecord, Topic, Webpage
-#from . import forms
-from .forms import FormName
+from first_app.models import AccessRecord
+from first_app.forms import FormName
 
 
 def index(request):
@@ -15,7 +12,7 @@ def index(request):
 def form_view(request):
     if request.method == 'POST':
         form = FormName(request.POST)
-        
+
         if form.is_valid():
             print('Validation success.')
             print(f'NAME: {form.cleaned_data["name"]}')
