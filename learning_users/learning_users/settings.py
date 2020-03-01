@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +31,7 @@ SECRET_KEY = 'm#b8o3d$u0ya&d&v25!ylaicsv3zi0tq!ia$i9g(9&t*su!gsc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS').split(':')
 
 
 # Application definition
