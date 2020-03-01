@@ -10,7 +10,8 @@ mypy = "*"
 faker = "*"
 
 [packages]
-django = "*"
+django = {extras = ["argon2"],version = "*"}
+bcrypt = "*"
 
 [requires]
 python_version = "3.8"
