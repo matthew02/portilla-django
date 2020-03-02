@@ -12,6 +12,7 @@ faker = "*"
 [packages]
 django = {extras = ["argon2"],version = "*"}
 bcrypt = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"
