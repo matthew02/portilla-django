@@ -88,7 +88,19 @@ DATABASES = {
 }
 
 
-# Password validation
+# Password hashing
+# https://docs.djangoproject.com/en/3.0/topics/auth/passwords/#how-django-stores-passwords
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+]
+
+
+#Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -125,3 +137,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Media
+# https://docs.djangoproject.com/en/3.0/ref/settings/#media-root
+# MEDIA_URL = '/media/'
+
